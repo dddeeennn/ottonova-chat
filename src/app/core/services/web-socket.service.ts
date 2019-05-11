@@ -18,7 +18,7 @@ export class WebSocketService {
   fromEvent<T extends MessageBase>(type: EventType): Observable<T> {
     return new Observable(observer => {
       this.socket.on(type, (data: T) => {
-        console.log('Received message');
+        console.log('Received', type);
         console.log(data);
         observer.next(data);
       });
@@ -29,8 +29,8 @@ export class WebSocketService {
   }
 
   emit(type: EventType, message: MessageBase): void {
-    console.log('Emit message');
+    console.log('Emitted', type);
     console.log(message);
-    this.socket.emit(type, JSON.stringify(message));
+    this.socket.emit(type, message);
   }
 }

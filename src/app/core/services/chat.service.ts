@@ -5,6 +5,7 @@ import { Command } from '../../shared/models/command.model';
 import { WebSocketService } from './web-socket.service';
 import { EventType } from '../../shared/models/event-type.enum';
 import { AuthorType } from '../../shared/models/author-type.enum';
+import { CommandType } from '../../shared/models/command-type.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,15 @@ export class ChatService {
     } as Message;
 
     this.socket.emit(EventType.Message, message);
+  }
+
+  sendCommand(): void {
+    this.socket.emit(EventType.Command, {
+      author: AuthorType.Client,
+      command: {
+        type: CommandType.Date,
+        data: new Date(),
+      }
+    } as Command);
   }
 }

@@ -1,6 +1,6 @@
 export enum CommandType {
-  Date,
-  Map,
-  Rate,
-  Complete,
+  Date = 'date',
+  Map = 'map',
+  Rate = 'rate',
+  Complete = 'complate',
 }

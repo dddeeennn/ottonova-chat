@@ -15,4 +15,8 @@ export class AppComponent {
   sendMessage(): void {
     this.service.sendMessage(new Date().toDateString());
   }
+
+  sendCommand(): void {
+    this.service.sendCommand();
+  }
 }
