@@ -1,1 +1,4 @@
+<button (click)="sendMessage()">send message</button>
+{{(messages$ | async) | json }}
+{{(commands$ | async) | json }}
 <router-outlet></router-outlet>
