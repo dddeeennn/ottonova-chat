@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChatService } from '../core/services/chat.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ottonova-chat';
+  messages$ = this.service.getMessage();
+  commands$ = this.service.getCommand();
+
+  constructor(private service: ChatService) { }
+
+  sendMessage(): void {
+    this.service.sendMessage(new Date().toDateString());
+  }
+
+  sendCommand(): void {
+    this.service.sendCommand();
+  }
 }
