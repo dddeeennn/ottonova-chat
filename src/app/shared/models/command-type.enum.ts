@@ -3,4 +3,5 @@ export enum CommandType {
   Map = 'map',
   Rate = 'rate',
   Complete = 'complate',
+  Message = 'message',
 }

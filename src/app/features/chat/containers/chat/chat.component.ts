@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ChatService } from '../../../../core/services/chat.service';
-import { of } from 'rxjs';
+import { ConversationMessage } from '../../../../shared/models/conversation-message.model';
 
 @Component({
   selector: 'app-chat',
@@ -8,8 +9,9 @@ import { of } from 'rxjs';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent {
-  messages$ = of([{autor: 'client', message: 'hey'}]);
-  commands$ = this.service.getCommand();
+  authors$: Observable<string[]> = this.service.getAuthors();
+  messages$: Observable<ConversationMessage[]> = this.service.getMessages();
+  currentAuthor$: Observable<string> = this.service.getCurrentAuthor();
 
   constructor(private service: ChatService) { }
 
