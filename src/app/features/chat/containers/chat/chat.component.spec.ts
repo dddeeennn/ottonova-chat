@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChatComponent } from './chat.component';
+import { PageLayoutComponent } from '../../../../shared/components/page-layout/page-layout.component';
 
 describe('ChatComponent', () => {
   let component: ChatComponent;
@@ -8,9 +9,12 @@ describe('ChatComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChatComponent ]
+      declarations: [
+        ChatComponent,
+        PageLayoutComponent,
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

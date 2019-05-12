@@ -1,4 +1,6 @@
-<button (click)="sendMessage()">send message</button>
-<button (click)="sendCommand()">send command</button>
-{{(messages$ | async) | json }}
-{{(commands$ | async) | json }}
+<app-page-layout>
+  <button (click)="sendMessage()">send message</button>
+  <button (click)="sendCommand()">send command</button>
+  {{(messages$ | async) | json }}
+  {{(commands$ | async) | json }}
+</app-page-layout>
