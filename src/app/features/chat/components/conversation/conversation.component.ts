@@ -7,5 +7,6 @@ import { ConversationMessage } from '../../../../shared/models/conversation-mess
   styleUrls: ['./conversation.component.scss']
 })
 export class ConversationComponent {
+  @Input() author: string;
   @Input() messages: ConversationMessage[] = [];
 }

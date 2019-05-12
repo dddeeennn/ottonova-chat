@@ -1,0 +1,5 @@
+<ng-container *ngFor="let message of messages">
+  <mat-card class="message" [class.my]="message.originator === AuthorType.Client">
+    <mat-card-content>{{message.payload.data  | json}}</mat-card-content>
+  </mat-card>
+</ng-container>

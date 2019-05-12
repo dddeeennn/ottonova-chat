@@ -5,5 +5,5 @@ import { CommandPayload } from './command-payload.model';
 export interface ConversationMessage extends MessageBase {
   timestamp: Date;
   originator: AuthorType;
-  data: CommandPayload;
+  payload: CommandPayload;
 }

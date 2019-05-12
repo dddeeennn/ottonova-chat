@@ -5,10 +5,10 @@
 </app-page-layout>
 
 <ng-template #conversationListItem let-model>
-  <app-conversation-list-item [model]="model"></app-conversation-list-item>
+  <app-author-list-item [model]="model"></app-author-list-item>
 </ng-template>
 
 <ng-template #conversation>
-  <app-conversation [messages]="messages$ | async"></app-conversation>
-  <button (click)="sendCommand()">send command</button>
+  <button (click)="sendCommand()" style="position: absolute">send command</button>
+  <app-conversation [author]="currentAuthor$ | async" [messages]="messages$ | async"></app-conversation>
 </ng-template>

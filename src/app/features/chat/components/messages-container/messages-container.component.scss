@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.message-container {
+  display: flex;
+}
+
+.message {
+  max-width: 40rem;
+  margin: 0.25rem 0;
+  align-self: flex-start;
+
+  &.my {
+    align-self: flex-end;
+    background: #e8fbe8;
+  }
+}

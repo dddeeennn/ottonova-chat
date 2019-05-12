@@ -4,7 +4,10 @@ import { ChatComponent } from './containers/chat/chat.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ChatLayoutComponent } from './components/chat-layout/chat-layout.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
-import { ConversationListItemComponent } from './components/conversation-list-item/conversation-list-item.component';
+import { ConversationHeaderComponent } from './components/conversation-header/conversation-header.component';
+import { MessagesContainerComponent } from './components/messages-container/messages-container.component';
+import { NewMessageSectionComponent } from './components/new-message-section/new-message-section.component';
+import { AuthorListItemComponent } from './components/author-list-item/author-list-item.component';
 
 const routes = [
   {
@@ -24,7 +27,10 @@ const routes = [
     ChatComponent,
     ChatLayoutComponent,
     ConversationComponent,
-    ConversationListItemComponent
+    ConversationHeaderComponent,
+    MessagesContainerComponent,
+    NewMessageSectionComponent,
+    AuthorListItemComponent,
   ],
 })
 export class ChatModule { }

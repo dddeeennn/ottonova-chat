@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subscription, of, Subject } from 'rxjs';
+import { Observable, Subscription, of, Subject, BehaviorSubject } from 'rxjs';
 import { Message } from '../../shared/models/message.model';
 import { Command } from '../../shared/models/command.model';
 import { WebSocketService } from './web-socket.service';
@@ -16,12 +16,12 @@ import { MessageBase } from '../../shared/models/message-base.model';
 export class ChatService {
   private subs: Subscription[] = [];
 
-  authors = new Set<string>();
-  currentAuthor: string;
+  authors = new Set<string>([AuthorType.Bot]);
+  currentAuthor = AuthorType.Bot as string;
   messages: Array<ConversationMessage> = [];
-  authorsSubject = new Subject<string[]>();
+  authorsSubject = new BehaviorSubject<string[]>([this.currentAuthor]);
   messagesSubject = new Subject<ConversationMessage[]>();
-  currentAuthorSubject = new Subject<string>();
+  currentAuthorSubject = new BehaviorSubject<string>(this.currentAuthor);
 
   constructor(private socket: WebSocketService) {
     this.subs = [
@@ -32,7 +32,7 @@ export class ChatService {
             author: data.author,
             timestamp: new Date(),
             originator: AuthorType.Bot,
-            data: {
+            payload: {
               type: CommandType.Message,
               data: data.message,
             }
@@ -46,7 +46,7 @@ export class ChatService {
             author: data.author,
             timestamp: new Date(),
             originator: AuthorType.Bot,
-            data: data.command,
+            payload: data.command,
           })),
           tap(() => this.messagesSubject.next(this.messages)),
         ).subscribe(),
@@ -74,7 +74,7 @@ export class ChatService {
       author: AuthorType.Client,
       timestamp: new Date(),
       originator: AuthorType.Client,
-      data: {
+      payload: {
         type: CommandType.Message,
         data: messageText,
       }

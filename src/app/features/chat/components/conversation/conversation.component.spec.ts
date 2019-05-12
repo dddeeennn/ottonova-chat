@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConversationComponent } from './conversation.component';
+import { ConversationHeaderComponent } from '../conversation-header/conversation-header.component';
+import { MessagesContainerComponent } from '../messages-container/messages-container.component';
+import { NewMessageSectionComponent } from '../new-message-section/new-message-section.component';
+import { MaterialModule } from '../../../../material/material.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ConversationComponent', () => {
   let component: ConversationComponent;
@@ -8,9 +13,18 @@ describe('ConversationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConversationComponent ]
+      declarations: [
+        ConversationComponent,
+        ConversationHeaderComponent,
+        MessagesContainerComponent,
+        NewMessageSectionComponent,
+      ],
+      imports: [
+        MaterialModule,
+        NoopAnimationsModule,
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
