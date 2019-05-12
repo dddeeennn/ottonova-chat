@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ChatService } from '../../../../core/services/chat.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -7,7 +8,7 @@ import { ChatService } from '../../../../core/services/chat.service';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent {
-  messages$ = this.service.getMessage();
+  messages$ = of([{autor: 'client', message: 'hey'}]);
   commands$ = this.service.getCommand();
 
   constructor(private service: ChatService) { }

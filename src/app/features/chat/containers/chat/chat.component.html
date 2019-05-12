@@ -1,6 +1,16 @@
 <app-page-layout>
+  <app-chat-layout [conversationListItemTemplate]="conversationListItem" [conversationTemplate]="conversation" [conversationListContext]="[messages$ | async]">
+  </app-chat-layout>
+</app-page-layout>
+
+<ng-template #conversationListItem let-model>
+  <app-conversation-list-item [model]="model"></app-conversation-list-item>
+</ng-template>
+
+<ng-template #conversation>
+  <app-conversation ></app-conversation>
   <button (click)="sendMessage()">send message</button>
   <button (click)="sendCommand()">send command</button>
   {{(messages$ | async) | json }}
   {{(commands$ | async) | json }}
-</app-page-layout>
+</ng-template>
