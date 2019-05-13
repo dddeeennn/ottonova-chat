@@ -12,8 +12,8 @@ import { AuthorListItemComponent } from '../../components/author-list-item/autho
 import { ConversationHeaderComponent } from '../../components/conversation-header/conversation-header.component';
 import { MessagesContainerComponent } from '../../components/messages-container/messages-container.component';
 import { NewMessageSectionComponent } from '../../components/new-message-section/new-message-section.component';
-import { CompleteWidgetComponent } from '../../components/complete-widget/complete-widget.component';
-import { RateWidgetComponent } from '../../components/rate-widget/rate-widget.component';
+import { CompleteWidgetComponent } from '../../components/widgets/complete-widget/complete-widget.component';
+import { RateWidgetComponent } from '../../components/widgets/rate-widget/rate-widget.component';
 import { StarRatingModule } from 'angular-star-rating';
 
 describe('ChatComponent', () => {

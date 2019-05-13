@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ResponseMessage } from '../../../../shared/models/response-message.model';
+import { ResponseMessage } from '../../../../../shared/models/response-message.model';
 
 @Component({
   selector: 'app-rate-widget',

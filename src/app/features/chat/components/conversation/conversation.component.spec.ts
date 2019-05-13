@@ -6,8 +6,8 @@ import { MessagesContainerComponent } from '../messages-container/messages-conta
 import { NewMessageSectionComponent } from '../new-message-section/new-message-section.component';
 import { MaterialModule } from '../../../../material/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CompleteWidgetComponent } from '../complete-widget/complete-widget.component';
-import { RateWidgetComponent } from '../rate-widget/rate-widget.component';
+import { CompleteWidgetComponent } from '../widgets/complete-widget/complete-widget.component';
+import { RateWidgetComponent } from '../widgets/rate-widget/rate-widget.component';
 import { StarRatingModule } from 'angular-star-rating';
 
 describe('ConversationComponent', () => {
