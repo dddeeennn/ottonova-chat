@@ -7,6 +7,7 @@ import { RateWidgetComponent } from '../widgets/rate-widget/rate-widget.componen
 import { StarRatingModule } from 'angular-star-rating';
 import { MapWidgetComponent } from '../widgets/map-widget/map-widget.component';
 import { AgmCoreModule } from '@agm/core';
+import { DateWidgetComponent } from '../widgets/date-widget/date-widget.component';
 
 describe('MessagesContainerComponent', () => {
   let component: MessagesContainerComponent;
@@ -19,6 +20,7 @@ describe('MessagesContainerComponent', () => {
         CompleteWidgetComponent,
         RateWidgetComponent,
         MapWidgetComponent,
+        DateWidgetComponent,
       ],
       imports: [
         MaterialModule,

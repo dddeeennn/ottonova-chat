@@ -11,6 +11,7 @@ import { AuthorListItemComponent } from './components/author-list-item/author-li
 import { CompleteWidgetComponent } from './components/widgets/complete-widget/complete-widget.component';
 import { RateWidgetComponent } from './components/widgets/rate-widget/rate-widget.component';
 import { MapWidgetComponent } from './components/widgets/map-widget/map-widget.component';
+import { DateWidgetComponent } from './components/widgets/date-widget/date-widget.component';
 
 const routes = [
   {
@@ -37,6 +38,7 @@ const routes = [
     CompleteWidgetComponent,
     RateWidgetComponent,
     MapWidgetComponent,
+    DateWidgetComponent,
   ],
 })
 export class ChatModule { }

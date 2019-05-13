@@ -11,6 +11,7 @@ import { RateWidgetComponent } from '../widgets/rate-widget/rate-widget.componen
 import { StarRatingModule } from 'angular-star-rating';
 import { MapWidgetComponent } from '../widgets/map-widget/map-widget.component';
 import { AgmCoreModule } from '@agm/core';
+import { DateWidgetComponent } from '../widgets/date-widget/date-widget.component';
 
 describe('ConversationComponent', () => {
   let component: ConversationComponent;
@@ -26,6 +27,7 @@ describe('ConversationComponent', () => {
         CompleteWidgetComponent,
         RateWidgetComponent,
         MapWidgetComponent,
+        DateWidgetComponent,
       ],
       imports: [
         MaterialModule,

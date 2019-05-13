@@ -5,7 +5,8 @@
         <ng-container *ngSwitchCase="CommandType.Message">{{message.payload.data}}</ng-container>
 
         <ng-container *ngSwitchCase="CommandType.Complete">
-          <app-complete-widget [id]="message.id" [buttons]="message.payload.data" (sendMessage)="sendMessage.emit($event)"></app-complete-widget>
+          <app-complete-widget [id]="message.id" [buttons]="message.payload.data" (sendMessage)="sendMessage.emit($event)">
+          </app-complete-widget>
         </ng-container>
 
         <ng-container *ngSwitchCase="CommandType.Rate">
@@ -14,6 +15,10 @@
 
         <ng-container *ngSwitchCase="CommandType.Map">
           <app-map-widget [model]="message.payload.data"></app-map-widget>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="CommandType.Date">
+          <app-date-widget [id]="message.id" [model]="message.payload.data" (sendMessage)="sendMessage.emit($event)"></app-date-widget>
         </ng-container>
 
         <ng-container *ngSwitchDefault>{{message.payload | json}}</ng-container>
