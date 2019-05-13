@@ -13,6 +13,8 @@ import { ConversationHeaderComponent } from '../../components/conversation-heade
 import { MessagesContainerComponent } from '../../components/messages-container/messages-container.component';
 import { NewMessageSectionComponent } from '../../components/new-message-section/new-message-section.component';
 import { CompleteWidgetComponent } from '../../components/complete-widget/complete-widget.component';
+import { RateWidgetComponent } from '../../components/rate-widget/rate-widget.component';
+import { StarRatingModule } from 'angular-star-rating';
 
 describe('ChatComponent', () => {
   let component: ChatComponent;
@@ -32,10 +34,12 @@ describe('ChatComponent', () => {
         MessagesContainerComponent,
         NewMessageSectionComponent,
         CompleteWidgetComponent,
+        RateWidgetComponent,
       ],
       imports: [
         MaterialModule,
         NoopAnimationsModule,
+        StarRatingModule.forRoot(),
       ],
     })
       .compileComponents();

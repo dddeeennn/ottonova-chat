@@ -6,6 +6,7 @@ import { PageLayoutComponent } from './components/page-layout/page-layout.compon
 import { MaterialModule } from '../material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { PageContainerComponent } from './components/page-container/page-container.component';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PageContainerComponent } from './components/page-container/page-contain
     ReactiveFormsModule,
     MaterialModule,
     PageLayoutComponent,
+    StarRatingModule,
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { PageContainerComponent } from './components/page-container/page-contain
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    StarRatingModule.forRoot(),
   ],
 })
 export class SharedModule { }

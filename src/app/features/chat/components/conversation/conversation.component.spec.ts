@@ -7,6 +7,8 @@ import { NewMessageSectionComponent } from '../new-message-section/new-message-s
 import { MaterialModule } from '../../../../material/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CompleteWidgetComponent } from '../complete-widget/complete-widget.component';
+import { RateWidgetComponent } from '../rate-widget/rate-widget.component';
+import { StarRatingModule } from 'angular-star-rating';
 
 describe('ConversationComponent', () => {
   let component: ConversationComponent;
@@ -20,10 +22,12 @@ describe('ConversationComponent', () => {
         MessagesContainerComponent,
         NewMessageSectionComponent,
         CompleteWidgetComponent,
+        RateWidgetComponent,
       ],
       imports: [
         MaterialModule,
         NoopAnimationsModule,
+        StarRatingModule.forRoot(),
       ]
     })
       .compileComponents();

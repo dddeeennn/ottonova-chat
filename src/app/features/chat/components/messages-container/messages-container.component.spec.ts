@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MessagesContainerComponent } from './messages-container.component';
 import { MaterialModule } from '../../../../material/material.module';
 import { CompleteWidgetComponent } from '../complete-widget/complete-widget.component';
+import { RateWidgetComponent } from '../rate-widget/rate-widget.component';
+import { StarRatingModule } from 'angular-star-rating';
 
 describe('MessagesContainerComponent', () => {
   let component: MessagesContainerComponent;
@@ -13,9 +15,11 @@ describe('MessagesContainerComponent', () => {
       declarations: [
         MessagesContainerComponent,
         CompleteWidgetComponent,
+        RateWidgetComponent,
       ],
       imports: [
         MaterialModule,
+        StarRatingModule.forRoot(),
       ]
     })
       .compileComponents();

@@ -8,6 +8,10 @@
           <app-complete-widget [id]="message.id" [buttons]="message.payload.data" (sendMessage)="sendMessage.emit($event)"></app-complete-widget>
         </ng-container>
 
+        <ng-container *ngSwitchCase="CommandType.Rate">
+          <app-rate-widget [id]="message.id" [model]="message.payload.data" (sendMessage)="sendMessage.emit($event)"></app-rate-widget>
+        </ng-container>
+
         <ng-container *ngSwitchDefault>{{message.payload | json}}</ng-container>
       </mat-card-content>
     </ng-container>
