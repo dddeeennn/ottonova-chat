@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ChatService } from '../../../../core/services/chat.service';
 import { ConversationMessage } from '../../../../shared/models/conversation-message.model';
+import { ResponseMessage } from '../../../../shared/models/response-message.model';
 
 @Component({
   selector: 'app-chat',
@@ -15,7 +16,7 @@ export class ChatComponent {
 
   constructor(private service: ChatService) { }
 
-  onSendMessage(message: string): void {
+  onSendMessage(message: ResponseMessage): void {
     this.service.sendMessage(message);
   }
 

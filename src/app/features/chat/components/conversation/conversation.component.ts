@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ConversationMessage } from '../../../../shared/models/conversation-message.model';
+import { ResponseMessage } from '../../../../shared/models/response-message.model';
 
 @Component({
   selector: 'app-conversation',
@@ -9,5 +10,6 @@ import { ConversationMessage } from '../../../../shared/models/conversation-mess
 export class ConversationComponent {
   @Input() author: string;
   @Input() messages: ConversationMessage[] = [];
-  @Output() sendMessage = new EventEmitter<string>();
+
+  @Output() sendMessage = new EventEmitter<ResponseMessage>();
 }

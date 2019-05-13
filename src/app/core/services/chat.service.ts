@@ -9,6 +9,7 @@ import { CommandType } from '../../shared/models/command-type.enum';
 import { tap, map } from 'rxjs/operators';
 import { ConversationMessage } from '../../shared/models/conversation-message.model';
 import { MessageBase } from '../../shared/models/message-base.model';
+import { ResponseMessage } from '../../shared/models/response-message.model';
 
 @Injectable({
   providedIn: 'root',
@@ -28,26 +29,17 @@ export class ChatService {
       this.socket
         .fromEvent<Message>(EventType.Message).pipe(
           tap(data => this.handleAuthor(data)),
-          tap(data => this.messages.push({
-            author: data.author,
-            timestamp: new Date(),
-            originator: AuthorType.Bot,
-            payload: {
+          tap(data => this.messages.push(
+            new ConversationMessage(AuthorType.Bot, AuthorType.Bot, {
               type: CommandType.Message,
               data: data.message,
-            }
-          })),
+            }))),
           tap(() => this.messagesSubject.next(this.messages)),
         ).subscribe(),
       this.socket
         .fromEvent<Command>(EventType.Command).pipe(
           tap(data => this.handleAuthor(data)),
-          tap(data => this.messages.push({
-            author: data.author,
-            timestamp: new Date(),
-            originator: AuthorType.Bot,
-            payload: data.command,
-          })),
+          tap(data => this.messages.push(new ConversationMessage(data.author as AuthorType, AuthorType.Bot, data.command))),
           tap(() => this.messagesSubject.next(this.messages)),
         ).subscribe(),
     ];
@@ -69,22 +61,24 @@ export class ChatService {
     return this.currentAuthorSubject.asObservable();
   }
 
-  sendMessage(messageText: string): void {
-    this.messages.push({
-      author: AuthorType.Client,
-      timestamp: new Date(),
-      originator: AuthorType.Client,
-      payload: {
+  sendMessage(message: ResponseMessage): void {
+    this.messages = this.messages.filter(x => x.id !== message.id);
+
+    const ts = new Date();
+
+    this.messages.push(
+      new ConversationMessage(AuthorType.Client, AuthorType.Client as string, {
         type: CommandType.Message,
-        data: messageText,
-      }
-    });
+        data: message.text,
+      }));
+
     this.messagesSubject.next(this.messages);
-    const message = {
+
+    const toEmit = {
       author: AuthorType.Client,
-      message: messageText,
+      message: message.text,
     }
-    this.socket.emit(EventType.Message, message);
+    this.socket.emit(EventType.Message, toEmit);
   }
 
   sendCommand(): void {
