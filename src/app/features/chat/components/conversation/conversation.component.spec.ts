@@ -6,6 +6,7 @@ import { MessagesContainerComponent } from '../messages-container/messages-conta
 import { NewMessageSectionComponent } from '../new-message-section/new-message-section.component';
 import { MaterialModule } from '../../../../material/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CompleteWidgetComponent } from '../complete-widget/complete-widget.component';
 
 describe('ConversationComponent', () => {
   let component: ConversationComponent;
@@ -18,6 +19,7 @@ describe('ConversationComponent', () => {
         ConversationHeaderComponent,
         MessagesContainerComponent,
         NewMessageSectionComponent,
+        CompleteWidgetComponent,
       ],
       imports: [
         MaterialModule,

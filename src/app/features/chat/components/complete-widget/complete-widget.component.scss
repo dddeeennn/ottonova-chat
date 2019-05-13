@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  margin-top: 0.5rem;
+
+  button+button {
+    margin: 0 0.5rem;
+  }
+}

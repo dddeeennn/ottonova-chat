@@ -8,6 +8,7 @@ import { ConversationHeaderComponent } from './components/conversation-header/co
 import { MessagesContainerComponent } from './components/messages-container/messages-container.component';
 import { NewMessageSectionComponent } from './components/new-message-section/new-message-section.component';
 import { AuthorListItemComponent } from './components/author-list-item/author-list-item.component';
+import { CompleteWidgetComponent } from './components/complete-widget/complete-widget.component';
 
 const routes = [
   {
@@ -31,6 +32,7 @@ const routes = [
     MessagesContainerComponent,
     NewMessageSectionComponent,
     AuthorListItemComponent,
+    CompleteWidgetComponent,
   ],
 })
 export class ChatModule { }

@@ -12,6 +12,7 @@ import { AuthorListItemComponent } from '../../components/author-list-item/autho
 import { ConversationHeaderComponent } from '../../components/conversation-header/conversation-header.component';
 import { MessagesContainerComponent } from '../../components/messages-container/messages-container.component';
 import { NewMessageSectionComponent } from '../../components/new-message-section/new-message-section.component';
+import { CompleteWidgetComponent } from '../../components/complete-widget/complete-widget.component';
 
 describe('ChatComponent', () => {
   let component: ChatComponent;
@@ -30,6 +31,7 @@ describe('ChatComponent', () => {
         ConversationHeaderComponent,
         MessagesContainerComponent,
         NewMessageSectionComponent,
+        CompleteWidgetComponent,
       ],
       imports: [
         MaterialModule,

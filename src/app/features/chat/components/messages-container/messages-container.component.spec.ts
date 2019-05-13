@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessagesContainerComponent } from './messages-container.component';
 import { MaterialModule } from '../../../../material/material.module';
+import { CompleteWidgetComponent } from '../complete-widget/complete-widget.component';
 
 describe('MessagesContainerComponent', () => {
   let component: MessagesContainerComponent;
@@ -9,7 +10,10 @@ describe('MessagesContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MessagesContainerComponent],
+      declarations: [
+        MessagesContainerComponent,
+        CompleteWidgetComponent,
+      ],
       imports: [
         MaterialModule,
       ]
