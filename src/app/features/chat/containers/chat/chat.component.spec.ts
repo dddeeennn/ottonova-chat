@@ -15,6 +15,8 @@ import { NewMessageSectionComponent } from '../../components/new-message-section
 import { CompleteWidgetComponent } from '../../components/widgets/complete-widget/complete-widget.component';
 import { RateWidgetComponent } from '../../components/widgets/rate-widget/rate-widget.component';
 import { StarRatingModule } from 'angular-star-rating';
+import { MapWidgetComponent } from '../../components/widgets/map-widget/map-widget.component';
+import { AgmCoreModule } from '@agm/core';
 
 describe('ChatComponent', () => {
   let component: ChatComponent;
@@ -35,11 +37,13 @@ describe('ChatComponent', () => {
         NewMessageSectionComponent,
         CompleteWidgetComponent,
         RateWidgetComponent,
+        MapWidgetComponent,
       ],
       imports: [
         MaterialModule,
         NoopAnimationsModule,
         StarRatingModule.forRoot(),
+        AgmCoreModule.forRoot(),
       ],
     })
       .compileComponents();

@@ -7,6 +7,8 @@ import { MaterialModule } from '../material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { PageContainerComponent } from './components/page-container/page-container.component';
 import { StarRatingModule } from 'angular-star-rating';
+import { AgmCoreModule } from '@agm/core';
+import { appConfig } from '../../assets/app-config';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { StarRatingModule } from 'angular-star-rating';
     MaterialModule,
     PageLayoutComponent,
     StarRatingModule,
+    AgmCoreModule,
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,9 @@ import { StarRatingModule } from 'angular-star-rating';
     ReactiveFormsModule,
     MaterialModule,
     StarRatingModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: appConfig.googleMapApiKey,
+    })
   ],
 })
 export class SharedModule { }

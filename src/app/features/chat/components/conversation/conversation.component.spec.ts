@@ -9,6 +9,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CompleteWidgetComponent } from '../widgets/complete-widget/complete-widget.component';
 import { RateWidgetComponent } from '../widgets/rate-widget/rate-widget.component';
 import { StarRatingModule } from 'angular-star-rating';
+import { MapWidgetComponent } from '../widgets/map-widget/map-widget.component';
+import { AgmCoreModule } from '@agm/core';
 
 describe('ConversationComponent', () => {
   let component: ConversationComponent;
@@ -23,11 +25,13 @@ describe('ConversationComponent', () => {
         NewMessageSectionComponent,
         CompleteWidgetComponent,
         RateWidgetComponent,
+        MapWidgetComponent,
       ],
       imports: [
         MaterialModule,
         NoopAnimationsModule,
         StarRatingModule.forRoot(),
+        AgmCoreModule.forRoot(),
       ]
     })
       .compileComponents();

@@ -10,6 +10,7 @@ import { NewMessageSectionComponent } from './components/new-message-section/new
 import { AuthorListItemComponent } from './components/author-list-item/author-list-item.component';
 import { CompleteWidgetComponent } from './components/widgets/complete-widget/complete-widget.component';
 import { RateWidgetComponent } from './components/widgets/rate-widget/rate-widget.component';
+import { MapWidgetComponent } from './components/widgets/map-widget/map-widget.component';
 
 const routes = [
   {
@@ -35,6 +36,7 @@ const routes = [
     AuthorListItemComponent,
     CompleteWidgetComponent,
     RateWidgetComponent,
+    MapWidgetComponent,
   ],
 })
 export class ChatModule { }

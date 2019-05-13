@@ -5,6 +5,8 @@ import { MaterialModule } from '../../../../material/material.module';
 import { CompleteWidgetComponent } from '../widgets/complete-widget/complete-widget.component';
 import { RateWidgetComponent } from '../widgets/rate-widget/rate-widget.component';
 import { StarRatingModule } from 'angular-star-rating';
+import { MapWidgetComponent } from '../widgets/map-widget/map-widget.component';
+import { AgmCoreModule } from '@agm/core';
 
 describe('MessagesContainerComponent', () => {
   let component: MessagesContainerComponent;
@@ -16,10 +18,12 @@ describe('MessagesContainerComponent', () => {
         MessagesContainerComponent,
         CompleteWidgetComponent,
         RateWidgetComponent,
+        MapWidgetComponent,
       ],
       imports: [
         MaterialModule,
         StarRatingModule.forRoot(),
+        AgmCoreModule.forRoot(),
       ]
     })
       .compileComponents();
