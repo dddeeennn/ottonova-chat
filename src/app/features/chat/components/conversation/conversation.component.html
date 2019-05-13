@@ -1,3 +1,3 @@
 <app-conversation-header [model]="author"></app-conversation-header>
 <app-messages-container class="content" [messages]="messages"></app-messages-container>
-<app-new-message-section></app-new-message-section>
+<app-new-message-section (sendMessage)="sendMessage.emit($event)"></app-new-message-section>

@@ -15,8 +15,8 @@ export class ChatComponent {
 
   constructor(private service: ChatService) { }
 
-  sendMessage(): void {
-    this.service.sendMessage(new Date().toDateString());
+  onSendMessage(message: string): void {
+    this.service.sendMessage(message);
   }
 
   sendCommand(): void {

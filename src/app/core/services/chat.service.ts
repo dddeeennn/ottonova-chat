@@ -57,7 +57,7 @@ export class ChatService {
     return this.messagesSubject
       .asObservable()
       .pipe(
-        map(messages => messages.filter(message => message.author === this.currentAuthor))
+        map(messages => messages.filter(message => [this.currentAuthor, AuthorType.Client].includes(message.author)))
       );
   }
 
@@ -79,6 +79,7 @@ export class ChatService {
         data: messageText,
       }
     });
+    this.messagesSubject.next(this.messages);
     const message = {
       author: AuthorType.Client,
       message: messageText,
