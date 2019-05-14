@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://demo-chat-server.on.ag/',
+  mobileSizePx: 600,
 };
 
 /*

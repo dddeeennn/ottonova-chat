@@ -1,0 +1,4 @@
+<div>Select your day:</div>
+<mat-button-toggle-group class="actions" aria-label="Peek the day of week">
+  <mat-button-toggle *ngFor="let day of days" (click)="onClick(day)">{{day}}</mat-button-toggle>
+</mat-button-toggle-group>

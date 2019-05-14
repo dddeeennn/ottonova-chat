@@ -1,0 +1,9 @@
+<div class="container">
+  <mat-form-field class="form-field">
+    <input matInput #input maxlength="140" placeholder="Write a message..." (keyup.enter)="onSend(input.value)">
+    <mat-hint align="end">{{input.value?.length || 0}}/140</mat-hint>
+  </mat-form-field>
+  <button mat-button class="new-message-button" (click)="onSend(input.value)">
+    <mat-icon>send</mat-icon>
+  </button>
+</div>
