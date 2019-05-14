@@ -1,4 +1,4 @@
-<app-page-layout>
+<app-page-layout (signout)="onSignout($event)">
   <app-chat-layout [conversationListItemTemplate]="conversationListItem" [conversationTemplate]="conversation"
     [conversationListContext]="authors$ | async">
   </app-chat-layout>
