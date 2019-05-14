@@ -1,3 +1,13 @@
-<p>
-  login works!
-</p>
+<div class="top-shift"></div>
+<mat-card class="card">
+  <form class="form">
+    <mat-form-field class="form-field">
+      <input matInput #login placeholder="Login">
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput #password placeholder="Password" type="password">
+    </mat-form-field>
+  </form>
+  <button mat-flat-button color="primary" class="field submit" (click)="onLoginClick(login.value, password.value)">{{'Войти'}}</button>
+</mat-card>
+<div class="bottom-shift"></div>
