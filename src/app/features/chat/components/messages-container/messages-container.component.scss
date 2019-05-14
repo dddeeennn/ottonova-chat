@@ -1,10 +1,8 @@
 :host {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  padding: 1rem;
   justify-content: flex-end;
-  overflow: auto;
+  flex: 1;
 }
 
 .message {
@@ -16,4 +14,24 @@
     align-self: flex-end;
     background: #e8fbe8;
   }
+}
+
+.messages-wrapper {
+  overflow: auto;
+  max-height: 100%;
+  display: flex;
+  justify-self: flex-end;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.message-content-wrapper {
+  display: flex;
+}
+
+.ts {
+  font-size: 0.7rem;
+  opacity: 0.45;
+  align-self: flex-end;
+  margin: 0.5rem 0px 0px 2rem;
 }

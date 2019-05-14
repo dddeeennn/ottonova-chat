@@ -9,7 +9,7 @@
 </ng-template>
 
 <ng-template #conversation>
-  <button (click)="sendCommand()" style="position: absolute">send command</button>
+    <!-- <button (click)="sendCommand()" style="position: absolute">send command</button> -->
   <app-conversation [author]="currentAuthor$ | async" [messages]="messages$ | async"  (sendMessage)="onSendMessage($event)">
   </app-conversation>
 </ng-template>
