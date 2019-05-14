@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ResponseMessage } from '../../../../../shared/models/response-message.model';
+import { CommandType } from '../../../../../shared/models/command-type.enum';
 
 @Component({
   selector: 'app-rate-widget',
@@ -13,6 +14,10 @@ export class RateWidgetComponent {
   @Output() sendMessage = new EventEmitter<ResponseMessage>();
 
   onClick(event: { rating: number }): void {
-    setTimeout(() => this.sendMessage.emit({ id: this.id, text: `You rate us: ${event.rating}. Thank you!` }), 500);
+    setTimeout(() => this.sendMessage.emit({
+      id: this.id,
+      text: `You rate us: ${event.rating}. Thank you!`,
+      type: CommandType.Rate,
+    }), 500);
   }
 }

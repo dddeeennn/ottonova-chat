@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { ResponseMessage } from '../../../../../shared/models/response-message.model';
+import { CommandType } from '../../../../../shared/models/command-type.enum';
 
 @Component({
   selector: 'app-date-widget',
@@ -24,6 +25,6 @@ export class DateWidgetComponent {
   @Output() sendMessage = new EventEmitter<ResponseMessage>();
 
   onClick(day: string): void {
-    this.sendMessage.emit({ id: this.id, text: `${day} is your day.` });
+    this.sendMessage.emit({ id: this.id, text: `${day} is your day.`, type: CommandType.Date });
   }
 }
