@@ -12,11 +12,13 @@ import { CompleteWidgetComponent } from './components/widgets/complete-widget/co
 import { RateWidgetComponent } from './components/widgets/rate-widget/rate-widget.component';
 import { MapWidgetComponent } from './components/widgets/map-widget/map-widget.component';
 import { DateWidgetComponent } from './components/widgets/date-widget/date-widget.component';
+import { AuthGuard } from '../../core/guards/auth.guard';
 
 const routes = [
   {
     path: '',
     component: ChatComponent,
+    canActivate: [AuthGuard],
   },
 ];
 
