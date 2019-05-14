@@ -12,6 +12,10 @@ export class NewMessageSectionComponent {
   @ViewChild('input') input: ElementRef;
 
   onSend(text: string): void {
+    if (!text) {
+      return;
+    }
+
     this.sendMessage.emit({ id: Date.now(), text });
     this.input.nativeElement.value = '';
   }
