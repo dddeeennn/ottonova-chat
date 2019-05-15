@@ -1,6 +1,6 @@
 import { Component, Input, TemplateRef, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { DisplayMode } from '../../../models/display-mode.enum';
+import { DisplayMode } from '../../models/display-mode.enum';
 import { appConfig } from '../../../../../assets/app-config';
 import { Subject, Subscription } from 'rxjs';
 
