@@ -8,8 +8,9 @@
   <app-author-list-item [model]="model"></app-author-list-item>
 </ng-template>
 
-<ng-template #conversation>
-    <!-- <button (click)="sendCommand()" style="position: absolute">send command</button> -->
-  <app-conversation [author]="currentAuthor$ | async" [messages]="messages$ | async"  (sendMessage)="onSendMessage($event)">
+<ng-template #conversation let-model>
+  <!-- <button (click)="sendCommand()" style="position: absolute">send command</button> -->
+  <app-conversation [author]="currentAuthor$ | async" [isMobile]="model.isMobile" [messages]="messages$ | async"
+    (sendMessage)="onSendMessage($event)" (showList)="model.showListSub.next()">
   </app-conversation>
 </ng-template>

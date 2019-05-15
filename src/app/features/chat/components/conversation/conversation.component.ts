@@ -10,6 +10,8 @@ import { ResponseMessage } from '../../../../shared/models/response-message.mode
 export class ConversationComponent {
   @Input() author: string;
   @Input() messages: ConversationMessage[] = [];
+  @Input() isMobile: boolean;
 
   @Output() sendMessage = new EventEmitter<ResponseMessage>();
+  @Output() showList = new EventEmitter<void>();
 }
