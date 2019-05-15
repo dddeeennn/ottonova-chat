@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -11,9 +11,6 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   onLoginClick(login: string, password: string): void {
-    const result = this.authService.login(login, password);
-    if (result) {
-      this.router.navigateByUrl('/');
-    }
+    this.authService.login(login, password);
   }
 }

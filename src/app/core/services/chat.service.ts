@@ -10,6 +10,7 @@ import { tap, map } from 'rxjs/operators';
 import { ConversationMessage } from '../../shared/models/conversation-message.model';
 import { MessageBase } from '../../shared/models/message-base.model';
 import { ResponseMessage } from '../../shared/models/response-message.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,7 @@ export class ChatService {
   messagesSubject = new Subject<ConversationMessage[]>();
   currentAuthorSubject = new BehaviorSubject<string>(this.currentAuthor);
 
-  constructor(private socket: WebSocketService) {
+  constructor(private socket: WebSocketService, private authService: AuthService) {
     this.subs = [
       this.socket
         .fromEvent<Message>(EventType.Message).pipe(
@@ -49,7 +50,7 @@ export class ChatService {
     return this.messagesSubject
       .asObservable()
       .pipe(
-        map(messages => messages.filter(message => [this.currentAuthor, AuthorType.Client].includes(message.author)))
+        map(messages => messages.filter(message => [this.currentAuthor, this.authService.user].includes(message.author)))
       );
   }
 
@@ -62,22 +63,16 @@ export class ChatService {
   }
 
   sendMessage(message: ResponseMessage): void {
-    this.messages = this.messages.filter(x => x.id !== message.id);
+    this.handleResponseMessage(message);
 
-    const ts = new Date();
-
-    this.messages.push(
-      new ConversationMessage(AuthorType.Client, AuthorType.Client as string, {
-        type: CommandType.Message,
-        data: message.text,
-      }));
-
-    this.messagesSubject.next(this.messages);
+    if (message.type !== CommandType.Message) {
+      return;
+    }
 
     const toEmit = {
-      author: AuthorType.Client,
+      author: this.authService.user,
       message: message.text,
-    }
+    };
     this.socket.emit(EventType.Message, toEmit);
   }
 
@@ -91,7 +86,7 @@ export class ChatService {
     } as Command);
   }
 
-  handleAuthor(message: MessageBase): void {
+  private handleAuthor(message: MessageBase): void {
     if (!this.authors.size) {
       this.currentAuthor = message.author;
       this.currentAuthorSubject.next(message.author);
@@ -102,5 +97,17 @@ export class ChatService {
     if (this.authors.has(message.author)) {
       this.authorsSubject.next(Array.from(this.authors));
     }
+  }
+
+  private handleResponseMessage(message: ResponseMessage): void {
+    this.messages = this.messages.filter(x => x.id !== message.id);
+
+    this.messages.push(
+      new ConversationMessage(AuthorType.Client, this.authService.user, {
+        type: CommandType.Message,
+        data: message.text,
+      }));
+
+    this.messagesSubject.next(this.messages);
   }
 }

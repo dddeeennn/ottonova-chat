@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { ResponseMessage } from '../../../../shared/models/response-message.model';
+import { CommandType } from '../../../../shared/models/command-type.enum';
 
 @Component({
   selector: 'app-new-message-section',
@@ -12,7 +13,11 @@ export class NewMessageSectionComponent {
   @ViewChild('input') input: ElementRef;
 
   onSend(text: string): void {
-    this.sendMessage.emit({ id: Date.now(), text });
+    if (!text) {
+      return;
+    }
+
+    this.sendMessage.emit({ id: Date.now(), text, type: CommandType.Message });
     this.input.nativeElement.value = '';
   }
 }

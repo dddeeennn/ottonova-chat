@@ -14,7 +14,7 @@ import { appConfig } from '../../assets/app-config';
   declarations: [
     PageLayoutComponent,
     HeaderComponent,
-    PageContainerComponent
+    PageContainerComponent,
   ],
   entryComponents: [
   ],

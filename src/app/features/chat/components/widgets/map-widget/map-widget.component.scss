@@ -1,9 +1,10 @@
 :host {
   display: block;
-  padding: -16px;
+  position: relative;
 }
 
 agm-map {
   width: 15rem;
   height: 15rem;
+  position: relative;
 }

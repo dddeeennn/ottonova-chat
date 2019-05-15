@@ -1,29 +1,33 @@
 <ng-container *ngIf="mobileQuery.matches; else desktop">
-  <ng-container *ngIf="mode === DisplayMode.Details;else mobileList">
-    <ng-container *ngTemplateOutlet="conversationTemplate; context: conversationContext"></ng-container>
+  <ng-container *ngIf="mode === DisplayMode.Details; else mobileList">
+    <ng-container
+      *ngTemplateOutlet="conversationTemplate; context: { $implicit: { showListSub: showListSub, isMobile: true, conversationCtx: conversationContext } }">
+    </ng-container>
   </ng-container>
 </ng-container>
 
 <ng-template #mobileList>
-  <ul>
-    <li *ngFor="let ctx of conversationListContext">
+  <mat-nav-list>
+    <a mat-list-item class="side-menu-item mobile" *ngFor="let ctx of conversationListContext" (click)="showDetails()">
       <ng-container *ngTemplateOutlet="conversationListItemTemplate; context: { $implicit: ctx }"></ng-container>
-    </li>
-  </ul>
+    </a>
+  </mat-nav-list>
 </ng-template>
 
 <ng-template #desktop>
   <mat-sidenav-container class="side-nav-container">
     <mat-sidenav class="side-nav" [mode]="'side'" [fixedInViewport]="false" [opened]="true" class="side-nav">
       <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let ctx of conversationListContext">
+        <a mat-list-item class="side-menu-item active" *ngFor="let ctx of conversationListContext">
           <ng-container *ngTemplateOutlet="conversationListItemTemplate; context: { $implicit: ctx }"></ng-container>
         </a>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content class="side-nav-content">
-      <ng-container *ngTemplateOutlet="conversationTemplate; context: conversationContext"></ng-container>
+      <ng-container
+        *ngTemplateOutlet="conversationTemplate; context: { $implicit: { isMobile: false, conversationContext: conversationContext } }">
+      </ng-container>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </ng-template>

@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Ottanova chat-bot</span>
+    <span class="title">Ottanova chat-bot</span>
     <span class="spacer"></span>
-    <mat-icon class="action-icon" aria-hidden="false" aria-label="sign out icon">exit_to_app</mat-icon>
+    <button mat-icon-button (click)="signout.emit($event)">
+      <mat-icon aria-hidden="false" aria-label="sign out icon">exit_to_app</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>

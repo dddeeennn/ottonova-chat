@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ResponseMessage } from '../../../../../shared/models/response-message.model';
+import { CommandType } from '../../../../../shared/models/command-type.enum';
 
 @Component({
   selector: 'app-complete-widget',
@@ -14,6 +15,6 @@ export class CompleteWidgetComponent {
 
   complete(button: string): void {
     const text = button.toLowerCase() === 'yes' ? 'You close the conversation.' : 'Enter your message...';
-    this.sendMessage.emit({ id: this.id, text });
+    this.sendMessage.emit({ id: this.id, text, type: CommandType.Complete });
   }
 }
