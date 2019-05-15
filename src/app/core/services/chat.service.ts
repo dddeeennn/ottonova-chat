@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subscription, of, Subject, BehaviorSubject } from 'rxjs';
+import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { Message } from '../../shared/models/message.model';
 import { Command } from '../../shared/models/command.model';
 import { WebSocketService } from './web-socket.service';
@@ -22,7 +22,7 @@ export class ChatService {
   currentAuthor = AuthorType.Bot as string;
   messages: Array<ConversationMessage> = [];
   authorsSubject = new BehaviorSubject<string[]>([this.currentAuthor]);
-  messagesSubject = new Subject<ConversationMessage[]>();
+  messagesSubject = new BehaviorSubject<ConversationMessage[]>(this.messages);
   currentAuthorSubject = new BehaviorSubject<string>(this.currentAuthor);
 
   constructor(private socket: WebSocketService, private authService: AuthService) {
