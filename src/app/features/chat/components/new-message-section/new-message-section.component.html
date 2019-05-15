@@ -6,4 +6,7 @@
   <button mat-button class="new-message-button" (click)="onSend(input.value)">
     <mat-icon>send</mat-icon>
   </button>
+  <button mat-button class="new-message-button" (click)="sendCommand.emit()">
+    Send a command
+  </button>
 </div>

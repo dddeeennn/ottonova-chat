@@ -9,8 +9,7 @@
 </ng-template>
 
 <ng-template #conversation let-model>
-  <!-- <button (click)="sendCommand()" style="position: absolute">send command</button> -->
   <app-conversation [author]="currentAuthor$ | async" [isMobile]="model.isMobile" [messages]="messages$ | async"
-    (sendMessage)="onSendMessage($event)" (showList)="model.showListSub.next()">
+    (sendCommand)="sendCommand()" (sendMessage)="onSendMessage($event)" (showList)="model.showListSub.next()">
   </app-conversation>
 </ng-template>

@@ -9,6 +9,7 @@ import { CommandType } from '../../../../shared/models/command-type.enum';
 })
 export class NewMessageSectionComponent {
   @Output() sendMessage = new EventEmitter<ResponseMessage>();
+  @Output() sendCommand = new EventEmitter<void>();
 
   @ViewChild('input') input: ElementRef;
 

@@ -1,4 +1,4 @@
 export const appConfig = {
   mobileSizePx: 600,
-  googleMapApiKey: 'AIzaSyC2BQwtmYFK96cjFvDvzc0bMrtATDXB6rU',
+  googleMapApiKey: 'AIzaSyChnQvGT5xCEZM1W7A4FjeNB-PZ5gqzCNo',
 };

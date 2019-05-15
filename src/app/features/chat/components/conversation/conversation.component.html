@@ -1,3 +1,3 @@
 <app-conversation-header [model]="author" [isMobile]="isMobile" (showList)="showList.emit($event)"></app-conversation-header>
 <app-messages-container [messages]="messages" (sendMessage)="sendMessage.emit($event)"></app-messages-container>
-<app-new-message-section (sendMessage)="sendMessage.emit($event)"></app-new-message-section>
+<app-new-message-section (sendCommand)="sendCommand.emit()" (sendMessage)="sendMessage.emit($event)"></app-new-message-section>

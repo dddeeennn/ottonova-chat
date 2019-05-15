@@ -13,5 +13,6 @@ export class ConversationComponent {
   @Input() isMobile: boolean;
 
   @Output() sendMessage = new EventEmitter<ResponseMessage>();
+  @Output() sendCommand = new EventEmitter<void>();
   @Output() showList = new EventEmitter<void>();
 }
