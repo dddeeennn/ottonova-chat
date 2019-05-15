@@ -17,9 +17,22 @@
   min-width: 15rem;
 }
 
+::ng-deep {
+  .mat-nav-list.mat-list-base {
+    padding-top: 0;
+  }
+}
+
 .side-menu-item {
   border-top: 1px solid #dfdfdf;
   border-bottom: 1px solid #dfdfdf;
-  background-color: #e9ebeb;
   font-weight: bold;
+
+  &.active {
+    background-color: #e9ebeb;
+  }
+
+  &.mobile {
+    border-top: none;
+  }
 }
