@@ -16,7 +16,7 @@ export class RateWidgetComponent {
   onClick(event: { rating: number }): void {
     setTimeout(() => this.sendMessage.emit({
       id: this.id,
-      text: `You rate us: ${event.rating}. Thank you!`,
+      text: `You rated us: ${event.rating}. Thank you!`,
       type: CommandType.Rate,
     }), 500);
   }

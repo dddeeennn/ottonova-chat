@@ -14,7 +14,7 @@ export class CompleteWidgetComponent {
   @Output() sendMessage = new EventEmitter<ResponseMessage>();
 
   complete(button: string): void {
-    const text = button.toLowerCase() === 'yes' ? 'You close the conversation.' : 'Enter your message...';
+    const text = button.toLowerCase() === 'yes' ? 'You closed the conversation.' : 'Enter your message...';
     this.sendMessage.emit({ id: this.id, text, type: CommandType.Complete });
   }
 }
