@@ -61,8 +61,7 @@ A root feature component (smart container component) should be built on top this
 
 Core module contains a services and guards with singleton life style.
 
-Core UI framwork is Angular Material. It contains modern UI components that work across the web, mobile and desktop.
-Fast and consisitent Angular Material optimized for Angular, so I selected them.
+Core UI framework is Angular Material. It contains modern UI components that work across the web, mobile and desktop. Fast and consistent Angular Material optimized for Angular, so I selected that one
 
 All communication between a component and API implemented through ChatService.
 This service exposes possibility getting messages and commands through Observable<T> interfaces. 
