@@ -26,4 +26,12 @@ describe('DateWidgetComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should order days from Friday on Friday date', () => {
+    component.model = new Date(2019, 4, 17, 10, 30, 30).toISOString();
+
+    expect(component.currentDay).toBe(4);
+    expect(component.days).toEqual(['Friday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday']);
+  });
+
 });

@@ -16,16 +16,16 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class ChatService {
-  private subs: Subscription[] = [];
-
-  authors = new Set<string>([AuthorType.Bot]);
-  currentAuthor = AuthorType.Bot as string;
-  messages: Array<ConversationMessage> = [];
-  authorsSubject = new BehaviorSubject<string[]>([this.currentAuthor]);
-  messagesSubject = new BehaviorSubject<ConversationMessage[]>(this.messages);
-  currentAuthorSubject = new BehaviorSubject<string>(this.currentAuthor);
+  private subs: Subscription[] = []; // in production app unsubscribe required
+  private authors = new Set<string>([AuthorType.Bot]);
+  private currentAuthor = AuthorType.Bot as string;
+  private messages: Array<ConversationMessage> = [];
+  private authorsSubject = new BehaviorSubject<string[]>([this.currentAuthor]);
+  private messagesSubject = new BehaviorSubject<ConversationMessage[]>(this.messages);
+  private currentAuthorSubject = new BehaviorSubject<string>(this.currentAuthor);
 
   constructor(private socket: WebSocketService, private authService: AuthService) {
+    // Initialize in constructor for simplicity
     this.subs = [
       this.socket
         .fromEvent<Message>(EventType.Message).pipe(
@@ -76,6 +76,7 @@ export class ChatService {
     this.socket.emit(EventType.Message, toEmit);
   }
 
+  // send some command in order to receive some random command
   sendCommand(): void {
     this.socket.emit(EventType.Command, {
       author: AuthorType.Client,
