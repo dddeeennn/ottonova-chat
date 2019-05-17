@@ -1,0 +1,6 @@
+<mat-toolbar>
+  <button mat-button *ngIf="isMobile" (click)="showList.emit()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <div>{{model}}</div>
+</mat-toolbar>

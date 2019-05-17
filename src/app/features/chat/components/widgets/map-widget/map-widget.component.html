@@ -1,0 +1,9 @@
+<ng-container *ngIf="model; else empty">
+  <agm-map [latitude]="model.lat" [longitude]="model.lng">
+    <agm-marker [latitude]="model.lat" [longitude]="model.lng"></agm-marker>
+  </agm-map>
+</ng-container>
+
+<ng-template #empty>
+  No data.
+</ng-template>
